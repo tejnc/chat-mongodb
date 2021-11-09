@@ -1,8 +1,8 @@
-call:
-  handler: functions/call.call
+register:
+  handler: functions/register.register
   events:
     - http:
-        path: call
-        method: get
+        path: register
+        method: post
         cors: true
         

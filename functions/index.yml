@@ -1,0 +1,8 @@
+call:
+  handler: functions/call.call
+  events:
+    - http:
+        path: call
+        method: get
+        cors: true
+        

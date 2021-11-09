@@ -1,0 +1,9 @@
+dnspython
+mongoengine
+mypy
+black
+flake8
+isort
+requests
+werkzeug
+pip-tools

@@ -6,3 +6,10 @@ register:
         method: post
         cors: true
         
+login: 
+  handler: functions/login.login
+  events:
+    - http:
+        path: login
+        method: post
+        cors: true

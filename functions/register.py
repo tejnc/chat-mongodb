@@ -1,13 +1,13 @@
-from json import loads,dumps
+from json import loads, dumps
 from werkzeug.security import generate_password_hash
 
 from utils.mongo import db_config
 from model.users import Users
 
 
-def register(event,context):
+def register(event, context):
     """
-        registering or signing up user
+    registering or signing up user
     """
     body = loads(event["body"])
     _name = body["name"]
@@ -25,18 +25,14 @@ def register(event,context):
     db_config()
 
     new_user = Users(
-        name = _name,
-        gender = _gender,
-        phone_number = _phone_number,
-        address = {
-            "province":_province,
-            "district":_district,
-            "town":_town
-        },
-        username = _username,
-        email = _email,
-        password = _hashed_password
+        name=_name,
+        gender=_gender,
+        phone_number=_phone_number,
+        address={"province": _province, "district": _district, "town": _town},
+        username=_username,
+        email=_email,
+        password=_hashed_password,
     )
     new_user.save()
 
-    return dumps({"message":"user saved"})
+    return dumps({"message": "user saved"})
